@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div class="login">
+        <mat-card>
+            <mat-card-title>LTM</mat-card-title>   
+            <mat-card-subtitle>Teste Upload / Download de Arquivos</mat-card-subtitle>   
+            <mat-form-field>
+                <input matInput class="input" [(ngModel)]="user.email" placeholder="Endereço de e-mail">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <input type="password" [(ngModel)]="user.password" matInput class="input" placeholder="Senha">
+            </mat-form-field>
+            <div>
+                <button mat-raised-button (click)="signin()" color="primary">Entrar</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

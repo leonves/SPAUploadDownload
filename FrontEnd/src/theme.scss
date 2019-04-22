@@ -1,0 +1,81 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$sw-ubar-yellow: (
+  50: #FEFAE1,
+  100: #FDF3B3,
+  200: #FCEB80,
+  300: #FBE24D,
+  400: #FADC27,
+  500: #F9D601,
+  600: #F8D101,
+  700: #F7CC01,
+  800: #F6C601,
+  900: #F5BC00,
+  A100: #FFFFFF,
+  A200: #FFF9E8,
+  A400: #FFECB5,
+  A700: #FFE59C,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$sw-ubar-blue: (
+  50: #E3E7EB,
+  100: #B8C3CE,
+  200: #899CAE,
+  300: #59748D,
+  400: #365674,
+  500: #12385C,
+  600: #103254,
+  700: #0D2B4A,
+  800: #0A2441,
+  900: #051730,
+  A100: #6A9CFF,
+  A200: #377BFF,
+  A400: #0459FF,
+  A700: #004FE9,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$sw-app-primary:  mat-palette($sw-ubar-blue,  700, 500, 800);
+$sw-app-accent: mat-palette($mat-grey, 800, 900, 700);
+$sw-app-global:  mat-palette($mat-grey, 500, 100, 900);
+
+$sw-app-warn: mat-palette($sw-ubar-yellow, 700, 800, 900);
+
+$sw-app-theme: mat-light-theme($sw-app-primary, $sw-app-accent, $sw-app-warn);
+
+$tamanho-cabecalho:60px;
+
+@include angular-material-theme($sw-app-theme);

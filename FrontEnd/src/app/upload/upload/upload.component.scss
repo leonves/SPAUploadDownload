@@ -1,0 +1,48 @@
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.invisible {
+    display: none;
+}
+
+
+.fileInput{
+    margin-left: 1rem;
+}
+
+.flexButtons {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+}
+
+.mat-table {
+    margin-top: 1rem;
+    width: 100% !important;
+}
+
+.files-table {
+    width: 70%;
+}
+
+.files {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-form-field{ min-width:300px !important; }
+
+.mat-progress-spinner {
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }

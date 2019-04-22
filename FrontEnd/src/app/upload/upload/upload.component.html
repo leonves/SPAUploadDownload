@@ -1,0 +1,65 @@
+<div class="flex">
+
+  <div class="flexButtons">
+    <button mat-raised-button *ngIf="profileId" (click)="fileUpload.click(); selectFile(file)" color="primary">Selecionar Arquivo</button>
+      <div class="fileInput">
+        <mat-form-field>
+          <input matInput class="input" [value]="fileName || ''" readonly placeholder="Nome do Arquivo">
+        </mat-form-field>
+        <button  *ngIf="fileName" (click)="upload()" mat-icon-button>
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+      </div>
+    <input type="file" class="invisible" (change)="showFile($event)" #fileUpload [(ngModel)]="file">
+
+  </div>
+  <div>
+    <button class="singoff" mat-raised-button (click)="signoff()" color="primary">Sair</button>
+  </div>  
+</div>
+<div class="files">
+  <div class="files-table">
+      <table *ngIf="!isLoading" mat-table [dataSource]="dataSource" class="example-table" matSort matSortActive="created"
+      matSortDisableClear matSortDirection="desc">
+
+      <ng-container matColumnDef="Nome do Arquivo">
+        <th mat-header-cell *matHeaderCellDef>Nome do Arquivo</th>
+        <td mat-cell *matCellDef="let element">{{element.fileName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Tamanho do Arquivo">
+        <th mat-header-cell *matHeaderCellDef>Tamanho</th>
+        <td mat-cell *matCellDef="let element">{{element.fileSize / 1000}} KB</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Dono do Arquivo">
+        <th mat-header-cell *matHeaderCellDef>Dono do Arquivo</th>
+        <td mat-cell *matCellDef="let element">{{element.ownerFile}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="Data do upload">
+          <th mat-header-cell *matHeaderCellDef>Data</th>
+          <td mat-cell *matCellDef="let element">{{element.dateCreation | date:'medium'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Opções">
+        <th mat-header-cell *matHeaderCellDef>Opções</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-flat-button color="warn" [matMenuTriggerFor]="download">Ver Opções</button>
+          <mat-menu #download="matMenu">
+            <button mat-menu-item (click)="downloadFile(element.fileName)">Efetuar Download</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+      <mat-paginator *ngIf="!isLoading" [length]="files.length" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      <div class="mat-progress-spinner" *ngIf="isLoading">
+        <mat-progress-spinner mode="indeterminate" color="warn"></mat-progress-spinner>
+      </div>
+  </div>
+  
+      
+</div>
